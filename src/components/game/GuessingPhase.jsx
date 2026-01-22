@@ -238,7 +238,8 @@ export default function GuessingPhase({
                   className="relative bg-white rounded-lg shadow-lg w-full"
                   style={{ 
                     aspectRatio: '1 / 1', 
-                    maxWidth: '500px', 
+                    width: '100%', 
+                    maxWidth: 'min(600px, 90vw)', 
                     margin: '0 auto',
                     cursor: (!hasGuessed) ? 'none' : 'default'  // Hide native cursor only
                   }}

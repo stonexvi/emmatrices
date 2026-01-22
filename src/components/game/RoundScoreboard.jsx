@@ -65,7 +65,7 @@ export default function RoundScoreboard({
             <div className="flex items-center gap-4 w-full">
               <div className="w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
 
-              <div className="flex-1" style={{ maxWidth: '400px', margin: '0 auto' }}>
+              <div className="flex-1" style={{ width: '100%', maxWidth: 'min(450px, 90vw)', margin: '0 auto' }}>
                 <svg
                   viewBox="0 0 500 500"
                   className="w-full rounded-lg shadow-lg"

@@ -516,7 +516,7 @@ export default function RevealPhase({
                 <svg
                   viewBox="0 0 500 500"
                   className="w-full rounded-lg shadow-lg"
-                  style={{ aspectRatio: '1 / 1', maxWidth: '500px', margin: '0 auto', backgroundColor: 'white' }}
+                  style={{ aspectRatio: '1 / 1', width: '100%', maxWidth: 'min(600px, 90vw)', margin: '0 auto', backgroundColor: 'white' }}
                 >
                   <line x1="0" y1="250" x2="500" y2="250" stroke="#9ca3af" strokeWidth="2" />
                   <line x1="250" y1="0" x2="250" y2="500" stroke="#9ca3af" strokeWidth="2" />
