@@ -230,7 +230,7 @@ export default function GuessingPhase({
             <div className="flex items-center gap-4 w-full">
               <div className="w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
 
-              <div className="flex-1 max-w-xl mx-auto">
+              <div className="flex-1 mx-auto">
                 <div
                   onClick={handleCanvasClick}
                   onMouseMove={handleCanvasMove}
