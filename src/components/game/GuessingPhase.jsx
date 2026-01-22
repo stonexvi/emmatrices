@@ -223,12 +223,12 @@ export default function GuessingPhase({
           </div>
         )}
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg md:p-6 p-3">
           <div className="flex flex-col items-center">
             <div className="mb-3 text-sm font-semibold text-gray-700">{yLabelTop}</div>
 
-            <div className="flex items-center gap-4 w-full">
-              <div className="w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
+            <div className="flex items-center gap-2 md:gap-4 w-full">
+              <div className="w-12 md:w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
 
               <div className="flex-1 mx-auto">
                 <div
@@ -293,7 +293,7 @@ export default function GuessingPhase({
                 </div>
               </div>
 
-              <div className="w-16 text-xs font-semibold text-gray-700 text-left">{xLabelRight}</div>
+              <div className="w-12 md:w-16 text-xs font-semibold text-gray-700 text-left">{xLabelRight}</div>
             </div>
 
             <div className="mt-3 text-sm font-semibold text-gray-700">{yLabelBottom}</div>
