@@ -256,12 +256,11 @@ function App() {
             >
               ← Back
             </button>
-
             <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">
-              Happy 30th Birthday!
+             Emmatrices
             </h1>
             <p className="text-gray-600 mb-6 text-center">
-              Welcome to your special interactive matrix collection!
+              Welcome to your interactive matrix collection!
             </p>
             <p className="text-sm text-gray-500 mb-6 text-center">
               30 unique matrices for 30 amazing years. Place your mark on each matrix to show where you stand!
@@ -443,7 +442,7 @@ function App() {
 
           {/* Footer */}
           <div className="text-center text-sm text-gray-500">
-            Made with ❤️ for an Emmazing 30th birthday
+            For an Emmazing 30th birthday
           </div>
         </div>
       </div>

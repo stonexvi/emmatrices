@@ -4,7 +4,6 @@ import GuessingPhase from './GuessingPhase';
 import RevealPhase from './RevealPhase';
 import ScoringPhase from './ScoringPhase';
 import RoundScoreboard from './RoundScoreboard';
-import { gameApi } from '../../utils/gameApi';
 
 export default function DisplayController({ gameCode, displayId }) {
   const { gameState, loading, error } = useGameState(gameCode, null, displayId);

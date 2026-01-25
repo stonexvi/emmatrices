@@ -223,7 +223,7 @@ export default function GuessingPhase({
           </div>
         )}
 
-        <div className="bg-white rounded-2xl shadow-lg md:p-6 p-3">
+        <div className="bg-white rounded-2xl shadow-lg py-4">
           <div className="flex flex-col items-center">
             <div className="mb-3 text-sm font-semibold text-gray-700">{yLabelTop}</div>
 

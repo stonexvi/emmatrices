@@ -3,7 +3,7 @@ export default function ModeSelection({ onSelectSolo, onSelectMultiplayer, onSel
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
         <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">
-          Happy 30th Birthday!
+          Emmatrices
         </h1>
         <p className="text-gray-600 mb-8 text-center">
           How do you want to play?

@@ -147,9 +147,9 @@ export default function PlayerMinimalView({ gameCode, playerId, playerInfo, game
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-purple-600">
-                +{Math.round(parseFloat(currentRoundScore))}
+                +{Math.round(parseFloat(playerScore?.currentGuessScore || 0))}
               </div>
-              <div className="text-sm text-gray-600">This Round</div>
+              <div className="text-sm text-gray-600">This Guess</div>
             </div>
           </div>
         </div>

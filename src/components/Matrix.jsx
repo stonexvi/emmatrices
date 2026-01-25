@@ -119,7 +119,7 @@ export default function Matrix({
   }
 
   return (
-    <div className="flex flex-col items-center w-full max-w-2xl mx-auto p-4">
+    <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
       {/* Top Y-axis label */}
       <div className="mb-3 text-sm font-semibold text-gray-700">
         {yLabelTop}
@@ -128,7 +128,7 @@ export default function Matrix({
       {/* Main coordinate system container */}
       <div className="flex items-center w-full gap-2 sm:gap-4">
         {/* Left X-axis label */}
-        <div className="w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 text-right">
+        <div className="w-12 m:w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 text-right">
           {xLabelLeft}
         </div>
         
@@ -224,7 +224,7 @@ export default function Matrix({
         </div>
 
         {/* Right X-axis label */}
-        <div className="w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 text-left">
+        <div className="w-12 m:w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 text-left">
           {xLabelRight}
         </div>
       </div>

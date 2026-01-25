@@ -108,14 +108,17 @@ export default function RevealPhase({
           }
         }, 500);
         return () => clearTimeout(timer);
-      }
+      } 
     }
   }, [animationStage, revealedGuessIndex, currentLineStep, currentRankRevealing, guesses.length, gameMode]);
 
   useEffect(() => {
     if (animationStage == 'complete') {
-      // continue to scoring after animation finishes in reveal
-      handleContinue()
+      setTimeout(() => {
+        console.warn('Auto-advancing to scoring');
+        // continue to scoring after animation finishes in reveal
+        handleContinue()
+      }, 5000);  
     }
   }, [animationStage])
 
@@ -331,7 +334,7 @@ export default function RevealPhase({
         
         <div className="space-y-3 mb-6">
           <div 
-            className={`flex items-center justify-between p-4 rounded-lg border-2 ${
+            className={`flex items-center justify-between rounded-lg border-2 ${
               winner?.playerId === player1?.playerId ? 'border-green-500 bg-green-50' : 'border-gray-300'
             }`}
           >

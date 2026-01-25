@@ -23,9 +23,9 @@ export default function RevealedMatrix({ roundData, gameData, gameState }) {
       {/* Top label */}
       <div className="mb-3 text-lg font-semibold text-gray-700">{yLabelTop}</div>
       
-      <div className="flex items-center gap-4 w-full max-w-4xl">
+      <div className="flex items-center w-full max-w-4xl gap-4">
         {/* Left label */}
-        <div className="w-16 md:w-24 text-sm md:text-base font-semibold text-gray-700 text-right">
+        <div className="w-12 m:w-16 md:w-24 text-sm md:text-base font-semibold text-gray-700 text-right">
           {xLabelLeft}
         </div>
         
@@ -163,7 +163,7 @@ export default function RevealedMatrix({ roundData, gameData, gameState }) {
         </div>
         
         {/* Right label */}
-        <div className="w-16 md:w-24 text-sm md:text-base font-semibold text-gray-700">
+        <div className="w-12 m:w-16 md:w-24 text-sm md:text-base font-semibold text-gray-700">
           {xLabelRight}
         </div>
       </div>
