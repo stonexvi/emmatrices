@@ -516,12 +516,12 @@ export default function RevealPhase({
           )}
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-white rounded-2xl shadow-lg py-4">
           <div className="flex flex-col items-center">
             <div className="mb-3 text-sm font-semibold text-gray-700">{yLabelTop}</div>
 
             <div className="flex items-center gap-4 w-full">
-              <div className="w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
+              <div className="w-12 m:w-16 text-xs font-semibold text-gray-700 text-right">{xLabelLeft}</div>
 
               <div className="flex-1 max-w-xl mx-auto">
                 <svg
@@ -800,7 +800,7 @@ export default function RevealPhase({
                 </svg>
               </div>
 
-              <div className="w-16 text-xs font-semibold text-gray-700 text-left">{xLabelRight}</div>
+              <div className="w-12 m:w-16 text-xs font-semibold text-gray-700 text-left">{xLabelRight}</div>
             </div>
 
             <div className="mt-3 text-sm font-semibold text-gray-700">{yLabelBottom}</div>
