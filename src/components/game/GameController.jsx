@@ -2,7 +2,9 @@ import { useGameState } from '../../hooks/useGameState';
 import PlacementPhase from './PlacementPhase';
 import GuessingPhase from './GuessingPhase';
 import RevealPhase from './RevealPhase';
+import ScoringPhase from './ScoringPhase';
 import RoundScoreboard from './RoundScoreboard';
+import PlayerMinimalView from './PlayerMinimalView';
 import { gameApi } from '../../utils/gameApi';
 
 export default function GameController({ gameCode, playerId, isHost }) {
@@ -36,6 +38,28 @@ export default function GameController({ gameCode, playerId, isHost }) {
       </div>
     );
   }
+
+  // CHECK IF DISPLAY MODE IS ACTIVE
+  const hasDisplays = gameState?.hasDisplays;
+  const currentPhase = game.currentPhase;
+
+  // If displays are connected, show minimal view ONLY during reveal and scoring phases
+  if (hasDisplays && (currentPhase === 'revealing' || currentPhase === 'scoring' || currentPhase === 'round_scoreboard')) {
+    const roundData = gameState?.currentRound;
+    return (
+      <PlayerMinimalView
+        gameCode={gameCode}
+        playerId={playerId}
+        playerInfo={playerInfo}
+        gameState={gameState}
+        roundData={roundData}
+        currentPhase={currentPhase}
+        isHost={isHost}
+      />
+    );
+  }
+
+  // NO DISPLAYS or PLACEMENT/GUESSING PHASES - Show full game view (original behavior)
 
   // CHECK GAME STATUS FIRST - before checking roundData
   if (game.status === 'finished') {
@@ -133,8 +157,6 @@ export default function GameController({ gameCode, playerId, isHost }) {
     );
   }
 
-  const currentPhase = game.currentPhase;
-
   switch (currentPhase) {
     case 'placing':
       return (
@@ -173,6 +195,19 @@ export default function GameController({ gameCode, playerId, isHost }) {
           roundData={roundData}
           gameData={game}
           gameState={gameState}
+        />
+      );
+
+    case 'scoring':
+      return (
+        <ScoringPhase
+          gameCode={gameCode}
+          playerId={playerId}
+          isHost={isHost}
+          roundData={roundData}
+          gameData={game}
+          gameState={gameState}
+          isDisplay={false}
         />
       );
 

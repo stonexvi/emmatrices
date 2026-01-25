@@ -10,16 +10,19 @@ import HostSetup from './components/game/HostSetup';
 import JoinGame from './components/game/JoinGame';
 import GameLobby from './components/game/GameLobby';
 import GameController from './components/game/GameController';
+import DisplayJoin from './components/game/DisplayJoin';
+import DisplayController from './components/game/DisplayController';
 
 function App() {
   // Mode state
-  const [mode, setMode] = useState('select'); // 'select', 'solo', 'multiplayer'
+  const [mode, setMode] = useState('select'); // 'select', 'solo', 'multiplayer', 'display'
   const [multiplayerScreen, setMultiplayerScreen] = useState('lobby-select'); // 'lobby-select', 'host-setup', 'join', 'lobby', 'playing'
   
   // Game mode state
   const [gameCode, setGameCode] = useState(null);
   const [playerId, setPlayerId] = useState(null);
   const [isHost, setIsHost] = useState(false);
+  const [displayId, setDisplayId] = useState(null);
   
   // Solo mode state
   const [userName, setUserName] = useState('');
@@ -126,6 +129,10 @@ function App() {
     setMultiplayerScreen('lobby-select');
   };
 
+  const handleSelectDisplay = () => {
+    setMode('display');
+  };
+
   const handleBackToModeSelect = () => {
     setMode('select');
   };
@@ -155,6 +162,34 @@ function App() {
     setIsHost(savedHost);
     setMultiplayerScreen('playing'); // Go straight to game
   };
+
+  // Display handlers
+  const handleDisplayJoined = (code, displayIdVal) => {
+    localStorage.setItem('currentGameCode', code);
+    localStorage.setItem('displayId', displayIdVal);
+    setGameCode(code);
+    setDisplayId(displayIdVal);
+  };
+
+  // DISPLAY MODE
+  if (mode === 'display') {
+    if (!displayId) {
+      return (
+        <DisplayJoin
+          onJoined={handleDisplayJoined}
+          onBack={handleBackToModeSelect}
+        />
+      );
+    }
+
+    // Display connected - show game
+    return (
+      <DisplayController
+        gameCode={gameCode}
+        displayId={displayId}
+      />
+    );
+  }
 
   // MULTIPLAYER MODE
   if (mode === 'multiplayer') {
@@ -408,7 +443,7 @@ function App() {
 
           {/* Footer */}
           <div className="text-center text-sm text-gray-500">
-            Made with for an Emmazing 30th birthday
+            Made with ❤️ for an Emmazing 30th birthday
           </div>
         </div>
       </div>
@@ -420,6 +455,7 @@ function App() {
     <ModeSelection
       onSelectSolo={handleSelectSolo}
       onSelectMultiplayer={handleSelectMultiplayer}
+      onSelectDisplay={handleSelectDisplay}
     />
   );
 }

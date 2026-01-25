@@ -32,9 +32,18 @@ export default function RoundScoreboard({
     if (advancing) return;
     
     setAdvancing(true);
+    
+    const timeoutId = setTimeout(() => {
+      console.warn('Advance timeout - re-enabling button');
+      setAdvancing(false);
+    }, 3000);
+    
     try {
       await gameApi.advancePhase(gameCode, playerId);
+      setAdvancing(false);
+      clearTimeout(timeoutId);
     } catch (err) {
+      clearTimeout(timeoutId);
       console.error('Error advancing:', err);
       alert('Failed to advance. Please try again.');
       setAdvancing(false);

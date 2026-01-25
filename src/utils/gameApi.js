@@ -14,11 +14,11 @@ export const gameApi = {
         gameMode
       })
     });
-    
+
     if (!response.ok) {
       throw new Error('Failed to create game');
     }
-    
+
     return response.json();
   },
 
@@ -32,12 +32,29 @@ export const gameApi = {
         playerColor
       })
     });
-    
+
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.error || 'Failed to join game');
     }
-    
+
+    return response.json();
+  },
+
+  async joinAsDisplay(gameCode, displayName) {
+    const response = await fetch(`${GAME_API_BASE_URL}/games/${gameCode}/display`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        displayName
+      })
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || 'Failed to join as display');
+    }
+
     return response.json();
   },
 
@@ -47,23 +64,27 @@ export const gameApi = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ playerId })
     });
-    
+
     if (!response.ok) {
       throw new Error('Failed to start game');
     }
-    
+
     return response.json();
   },
 
-  async getGameState(gameCode, playerId) {
-    const response = await fetch(
-      `${GAME_API_BASE_URL}/games/${gameCode}?playerId=${playerId}`
-    );
+  async getGameState(gameCode, playerId = null, displayId = null) {
+    const params = new URLSearchParams();
+    if (playerId) params.append('playerId', playerId);
+    if (displayId) params.append('displayId', displayId);
     
+    const response = await fetch(
+      `${GAME_API_BASE_URL}/games/${gameCode}?${params.toString()}`
+    );
+
     if (!response.ok) {
       throw new Error('Failed to get game state');
     }
-    
+
     return response.json();
   },
 
@@ -76,11 +97,11 @@ export const gameApi = {
         body: JSON.stringify({ playerId, x, y })
       }
     );
-    
+
     if (!response.ok) {
       throw new Error('Failed to place mark');
     }
-    
+
     return response.json();
   },
 
@@ -99,11 +120,11 @@ export const gameApi = {
         })
       }
     );
-    
+
     if (!response.ok) {
       throw new Error('Failed to submit guess');
     }
-    
+
     return response.json();
   },
 
@@ -116,11 +137,11 @@ export const gameApi = {
         body: JSON.stringify({ playerId })
       }
     );
-    
+
     if (!response.ok) {
       throw new Error('Failed to advance phase');
     }
-    
+
     return response.json();
   }
 };

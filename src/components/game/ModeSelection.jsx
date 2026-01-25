@@ -1,4 +1,4 @@
-export default function ModeSelection({ onSelectSolo, onSelectMultiplayer }) {
+export default function ModeSelection({ onSelectSolo, onSelectMultiplayer, onSelectDisplay }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
@@ -27,13 +27,28 @@ export default function ModeSelection({ onSelectSolo, onSelectMultiplayer }) {
         {/* Multiplayer Mode */}
         <button
           onClick={onSelectMultiplayer}
-          className="w-full p-6 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-200 text-left"
+          className="w-full mb-4 p-6 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-200 text-left"
         >
           <div className="flex items-center gap-4">
             <div>
               <div className="text-xl font-bold">Multiplayer Game</div>
               <div className="text-sm text-purple-100">
                 Party game - guess where friends placed themselves
+              </div>
+            </div>
+          </div>
+        </button>
+
+        {/* Display Mode - NEW */}
+        <button
+          onClick={onSelectDisplay}
+          className="w-full p-6 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-200 text-left"
+        >
+          <div className="flex items-center gap-4">
+            <div>
+              <div className="text-xl font-bold">Display Mode</div>
+              <div className="text-sm text-indigo-100">
+                Connect TV/laptop as main screen for multiplayer
               </div>
             </div>
           </div>
